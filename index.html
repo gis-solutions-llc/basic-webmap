@@ -76,7 +76,7 @@
         border-radius: 3px;
         bottom: 80px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font: 12px/20px Calibri;
         padding: 10px;
         position: absolute;
         right: 10px;
@@ -110,9 +110,10 @@
         padding: 10px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
         line-height: 18px;
-        height: 300px;
+        height: 350px;
         margin-bottom: 40px;
         width: 100px;
+		font: Calibri
       }
 
       .legend-key {
@@ -126,7 +127,7 @@
         background-color: #3887be;
         border-radius: 3px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font: 12px/20px Calibri;
         padding: 10px;
 		#padding-left: 40px;
         position: absolute;
@@ -148,7 +149,7 @@
         border-radius: 3px;
         width: 120px;
         border: 1px solid rgba(0, 0, 0, 0.4);
-        font-family: 'Open Sans', sans-serif;
+        font-family: Calibri;
       }
 
       #menu a {
@@ -223,7 +224,7 @@ text-decoration: none;
 	</div>
 	
     <div id='legend' class='legend'>
-      <h4>Neighborhood Grade</h4>
+      <h3 style="font-family:calibri;">Neighborhood Grade</h3>
     </div>
 	
 	<div>
@@ -253,8 +254,8 @@ text-decoration: none;
           [-98.857716, 53.7113756]
         ]);
         // define layer names
-        var layers = ['A+', 'A', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D', '<h4>MultiFamily Listings</h4>','<img src="https://www.dropbox.com/s/bso9y1o3qk7d8cx/red-marker.svg?raw=1" size=1600x1200&size_mode=3 size=1600x1200&size_mode=3" width="20px" height="20px"></img> Active Listing'];
-        var colors = ['#295927', '#1B9842', '#98D265', '#C6E788', '#EBF7AB', '#FFEDAD', '#FECA81', '#F99E58', '#E85A3B', '#fff', '#fff'];
+        var layers = ['A+', 'A', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D', '<h3 style="font-family:calibri;">MultiFamily Listings</h3>','<img src="https://www.dropbox.com/s/4svklnx5v8i5u9f/Paomedia-Small-N-Flat-Map-marker_rev.svg?raw=1" size=1600x1200&size_mode=3 size=1600x1200&size_mode=3" width="20px" height="20px"></img> Active Listing'];
+        var colors = ['#295927', '#1B9842', '#98D265', '#C6E788', '#EBF7AB', '#FFEDAD', '#FECA81', '#F99E58', '#E85A3B', '#fff', '#fff'];  
         // create legend
         for (i = 0; i < layers.length; i++) {
           var layer = layers[i];
@@ -305,8 +306,8 @@ text-decoration: none;
 			  `${parcels[0].properties.Cash_on_Ca  ? '<p><b>Cash on Cash (Leveraged): </b>' + parcels[0].properties.Cash_on_Ca : ''}` +
 			  `${parcels[0].properties.Cash_on_1  ? '<p><b>Cash on Cash (Cash): </b>' + parcels[0].properties.Cash_on_1 : ''}` +
 			  `${parcels[0].properties.Notes  ? '<p><b>Notes: </b>' + noteString : ''}` +
-			  `${parcels[0].properties.Add_info  ? '<p><h4><b>Additional Info: </b></h4>' + parcels[0].properties.Add_info : ''}` +
-			  `${parcels[0].properties.Desc_link ? '<p>' + parcels[0].properties.Desc_link : ''}` +
+			  `${parcels[0].properties.Add_info  ? '<p><b><h1><a href="https://airtable.com/shrpbrMWbexieHQrJ">Additional Info </b></h1></a>' + parcels[0].properties.Add_info : ''}` +
+			   `${parcels[0].properties.Desc_link ? '<p>' + parcels[0].properties.Desc_link : ''}` +
 			  "</p>";
           } else {
             document.getElementById('pd').innerHTML = '<p>Hover over a neighborhood</p>';
@@ -341,7 +342,7 @@ text-decoration: none;
 		
 		features.forEach(marker => {
 			var el = document.createElement('div');
-			el.style.backgroundImage = "url(https://www.mapbox.com/help/demos/custom-markers-gl-js/mapbox-icon.png)";
+			el.style.backgroundImage = "url(https://www.iconsdb.com/icons/preview/soylent-red/map-marker-2-xxl.png)";
 			el.style.width = '20px';
 			el.style.height = '20px';
 			
