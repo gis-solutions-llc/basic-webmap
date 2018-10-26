@@ -257,7 +257,11 @@ text-decoration: none;
       //create map
       var map = new mapboxgl.Map({
         container: 'map', // container id
-        style: 'mapbox://styles/investhypothetical/cjn0o2j6r3yx92smt7rtm82lj' // map style URL from Mapbox Studio
+        style: 'mapbox://styles/investhypothetical/cjn0o2j6r3yx92smt7rtm82lj', // map style URL from Mapbox Studio
+		 center: [-82.967582, 39.939201],
+		 pitch: 45, // pitch in degrees
+		 bearing: 0, // bearing in degrees
+		 zoom: 11
       });
       // wait for map to load before adjusting it
       map.on('load', function() {
