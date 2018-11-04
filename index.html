@@ -74,7 +74,7 @@
       .legend {
         background-color: #fff;
         border-radius: 3px;
-        bottom: 40px;
+        bottom: 250px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         font: 12px/20px Calibri;
         padding: 10px;
@@ -110,7 +110,7 @@
         padding: 10px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
         line-height: 18px;
-        height: 450px;
+        height: 225px;
         margin-bottom: 40px;
         width: 100px;
 		font: Calibri
@@ -154,49 +154,7 @@
 		width: 100px;
 	  }	  
 	  
-      #menu {
-        background: #fff;
-        position: absolute;
-        z-index: 1;
-        top: 60px;
-        right: 10px;
-        border-radius: 3px;
-        width: 120px;
-        border: 1px solid rgba(0, 0, 0, 0.4);
-        font-family: Calibri;
-      }
 
-      #menu a {
-        font-size: 13px;
-        color: #404040;
-        display: block;
-        margin: 0;
-        padding: 0;
-        padding: 10px;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-        text-align: center;
-      }
-
-      #menu a:last-child {
-        border: none;
-      }
-
-      #menu a:hover {
-        background-color: #f8f8f8;
-        color: #404040;
-      }
-
-      #menu a.active {
-        background-color: #3887be;
-        color: #ffffff;
-      }
-
-      #menu a.active:hover {
-        background: #3074a4;
-      }
-	  
-	 
 
 }</style>
 	  
@@ -211,7 +169,7 @@ text-decoration: none;
   </head>
 
   <body>
-    <nav id="menu"></nav>
+    
     <div id="map" class="mapboxgl-map">
       <div class="mapboxgl-missing-css">Missing Mapbox GL JS CSS</div>
       <div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate">
@@ -257,11 +215,7 @@ text-decoration: none;
       //create map
       var map = new mapboxgl.Map({
         container: 'map', // container id
-        style: 'mapbox://styles/investhypothetical/cjn0o2j6r3yx92smt7rtm82lj', // map style URL from Mapbox Studio
-		 center: [-82.967582, 39.939201],
-		 pitch: 45, // pitch in degrees
-		 bearing: 0, // bearing in degrees
-		 zoom: 11
+        style: 'mapbox://styles/investhypothetical/cjn0o2j6r3yx92smt7rtm82lj' // map style URL from Mapbox Studio
       });
       // wait for map to load before adjusting it
       map.on('load', function() {
@@ -276,30 +230,9 @@ text-decoration: none;
           [-98.857716, 53.7113756]
         ]);
         // define layer names
-        var layers = ['A+', 'A', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D','<img src="https://www.dropbox.com/s/4svklnx5v8i5u9f/Paomedia-Small-N-Flat-Map-marker_rev.svg?raw=1" size=1600x1200&size_mode=3 size=1600x1200&size_mode=3" width="20px" height="20px"></img> Active Listing', 'Cash on Cash Leverage'];
+        var layers = ['A+', 'A', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D'];
         var colors = ['#295927', '#1B9842', '#98D265', '#C6E788', '#EBF7AB', '#FFEDAD', '#FECA81', '#F99E58', '#E85A3B', '#fff', '#fff'];  
-        
-		// create legend
-        for (i = 0; i < layers.length; i++) {
-          var layer = layers[i];
-          var color = colors[i];
-          var item = document.createElement('div');
-          var key = document.createElement('span');
-          key.className = 'legend-key';
-          key.style.backgroundColor = color;
-          var value = document.createElement('span');
-          value.innerHTML = layer;
-          item.appendChild(key);
-          item.appendChild(value);
-          legend.appendChild(item);
-        }
-		
-		
-		  // define layer names
-        var layers = ['16% - 20%+', '11% - 15%', '6% - 10%', '1% - 5%', '0%', 'negative'];
-        var colors = ['#006d2c', '#31a354', '#74c476', '#bae4b3', '#edf8e9', '#FF2200'];  
-        
-		// create legend
+        // create legend
         for (i = 0; i < layers.length; i++) {
           var layer = layers[i];
           var color = colors[i];
@@ -332,19 +265,7 @@ text-decoration: none;
 				}
 			}) 
             document.getElementById('pd').innerHTML =
-              `${parcels[0].properties.Pic_URL_Fi ? '<p>' + parcels[0].properties.Pic_URL_Fi.replace('"”', '"') : ''}`  +	'<br/>' +
-			  `${parcels[0].properties.Cash_on_Ca  ? '<p><b>Cash on Cash (Leveraged): </b>' + parcels[0].properties.Cash_on_Ca : ''}` +
-			  `${parcels[0].properties.Cash_on__1  ? '<p><b>Cash on Cash (Cash): </b>' + parcels[0].properties.Cash_on__1 : ''}` +
-			  `${parcels[0].properties.Property_C  ? '<p><b>Property Class: </b>' + parcels[0].properties.Property_C : ''}` +
-			  `${parcels[0].properties.Hassle_Fac  ? '<p><b>Hassle Factor: </b>' + parcels[0].properties.Hassle_Fac : ''}` +
-			  `${parcels[0].properties.Total_Unit ? '<p><b>Total Units: </b>' + parcels[0].properties.Total_Unit : ''}` +
-			  `${parcels[0].properties.List_Price ? '<p><b>Listing Price: </b>' + parcels[0].properties.List_Price : ''}` +
-			  `${parcels[0].properties.Site_Addre ? '<p><b>Address: </b>' + parcels[0].properties.Site_Addre : ''}` +
-			  `${parcels[0].properties.List_Pri_1 ? '<p><b>Listing Price/Sqft: </b>' + parcels[0].properties.List_Pri_1 : ''}` +
-			  `${parcels[0].properties.Notes  ? '<p><b>Notes: </b>' + noteString : ''}` +
-			  `${parcels[0].properties.Listing_Me  ? '<p><b>Listing Member: </b>' + parcels[0].properties.Listing_Me : ''}` +
-			  `${parcels[0].properties.Listing_Of ? '<p><b>Listing Office: </b>' + parcels[0].properties.Listing_Of : ''}` +
-			  `${parcels[0].properties.Add_info  ? '<p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a type="button" target="_blank" href="https://airtable.com/shrpbrMWbexieHQrJ" class="add-info">Additional Info</a></b>' + parcels[0].properties.Add_info : ''}` +
+   		   
 			  `${parcels[0].properties.Desc_link ? '<p>' + parcels[0].properties.Desc_link : ''}` +
 			  "</p>";
           } else {
@@ -359,7 +280,7 @@ text-decoration: none;
 	  
  
 	// change info window on hover
-      var toggleableLayerIds = ['Active Listings'];
+      //var toggleableLayerIds = ['Active Listings'];
 
       for (var i = 0; i < toggleableLayerIds.length; i++) {
         var id = toggleableLayerIds[i];
