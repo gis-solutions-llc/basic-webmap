@@ -1,2 +1,2 @@
-# sample-webmap
-sample webmap
+# basic-webmap
+basic webmap
